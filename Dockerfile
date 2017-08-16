@@ -8,11 +8,12 @@ COPY build_openssh.sh /build_openssh.sh
 RUN chmod +x /build_openssh.sh
 
 
-RUN build_dep=wget gcc openssl openssl-devel zlib zlib-devel && \
+RUN build_deps='wget gcc openssl openssl-devel zlib zlib-devel' && \
     yum -y --security upgrade && \
-    yum install -y $build_dep && \
+    yum install -y $build_deps && \
     yum erase -y vim-minimal &&\
-    /build_openssh.sh
+    /build_openssh.sh && \
+    yum erase -y $build_deps
 
 
 ADD docker-entrypoint.sh /usr/local/bin
