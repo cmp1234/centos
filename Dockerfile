@@ -12,6 +12,7 @@ RUN build_deps='wget gcc make openssl-devel zlib-devel' && \
     yum -y --security update && \
     yum install -y $build_deps && \
     yum erase -y vim-minimal yum-plugin-ovl iputils libss &&\
+    useradd -r sshd && \
     /build_openssh.sh && \
     yum erase -y $build_deps && \
     yum -y clean all
