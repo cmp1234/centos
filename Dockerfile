@@ -9,7 +9,7 @@ RUN chmod +x /build_openssh.sh
 
 
 RUN yum upgrade -y && \
-    yum install wget && \
+    yum install -y wget && \
     yum erase -y vim-minimal &&\
     /build_openssh.sh
 
