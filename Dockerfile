@@ -9,8 +9,7 @@ RUN chmod +x /build_openssh.sh
 
 
 RUN yum upgrade -y && \
-    yum erase -y vim-minimal \
-	shadow-utils && \
+    yum erase -y vim-minimal &&\
     /build_openssh.sh
 
 
