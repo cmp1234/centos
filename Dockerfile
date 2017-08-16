@@ -8,7 +8,7 @@ COPY build_openssh.sh /build_openssh.sh
 RUN chmod +x /build_openssh.sh
 
 
-RUN yum upgrade -y && \
+RUN yum -y --security upgrade && \
     yum install -y wget && \
     yum erase -y vim-minimal &&\
     /build_openssh.sh
