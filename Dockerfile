@@ -11,8 +11,6 @@ RUN chmod +x /build_openssh.sh
 RUN yum upgrade -y && \
     yum install wget && \
     yum erase -y vim-minimal &&\
-    rpm -e yum-utils yum-plugin-ovl \
-	yum-plugin-fastestmirror yum && \
     /build_openssh.sh
 
 
